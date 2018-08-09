@@ -6,7 +6,8 @@
             <input type="submit" value="отправить">
         </form>
         <?php
-        echo "<br/>Кол-во долларов = ".($_GET['grn'] / $_GET['kurs']);
+        echo "<br/>Кол-во долларов = ";
+        if (isset($_GET['grn']) && isset($_GET['kurs'])) echo ($_GET['grn'] / $_GET['kurs']);
         ?>
     </body>
 </html>

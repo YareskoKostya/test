@@ -1,26 +1,26 @@
+<?php
+/**
+7) Идёт матч Англия:Бельгия. За каждый гол Англии коэффициент будет повышаться
+на 1,5,  а на каждый гол Бельгии на 2,5. Если одна из команд не забила ни одного 
+гола, ставить ей коэффициент разницы коэффициентов. Вычислить прибыль 
+пользователя в обоих случаях при вводе указаной им суммы и счёта.
+**/
+?>
 <html>
     <body>
         <form method="GET">
-            оценка по математике: <input type="text" name="mat">
-            оценка по физике: <input type="text" name="phiz">
-            оценка по химии: <input type="text" name="chim">
-            оценка по литературе: <input type="text" name="lit">
-            оценка по англ. языку: <input type="text" name="lan">
-            
+            счет: Англия <input type="text" name="angl"> : <input type="text" name="bel"> Бельгия<br/>
+            сумма: <input type="text" name="sum"><br/>
             <input type="submit" value="отправить">
         </form>
         <?php
-    $mat=$_GET['mat'];
-    $phiz=$_GET['phiz'];
-    $chim=$_GET['chim'];
-    $lit=$_GET['lit'];
-    $lan=$_GET['lan'];
-    $sred=($mat+$phiz);
-    if ($min>=1 && $min<4) echo "зима";
-    elseif ($min>=4 && $min<7) echo "весна"; 
-    elseif ($min>=7 && $min<10) echo "лето"; 
-    elseif ($min>=10 && $min<=12) echo "осень"; 
-    else echo "введито число >=1 и <=12";
+    $angl = $_GET['angl'];
+    $bel = $_GET['bel'];
+    $sum = $_GET['sum'];
+        
+    if ($angl > 0  && $bel > 0) echo "прибыль: ".($angl * 1.5 + $bel * 2.5) * $sum;
+    elseif ($angl == 0  || $bel == 0) echo "прибыль: ". abs($angl * 1.5 - $bel * 2.5) * $sum; 
+    else echo "введите правильно счет и сумму";
     ?>
     </body>
 </html>
